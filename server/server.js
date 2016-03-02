@@ -1,6 +1,5 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var Foods = require('./models/foods.js');
 var app = express();
 
 // middleware.js houses all the middleware that is run by express

@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 
 let store = createStore(foodAppHandler, applyMiddleware(logger()));
 
-window.getState = store.getState
+// window.getState = store.getState
 
 ReactDOM.render(
 	<Provider store={store}>

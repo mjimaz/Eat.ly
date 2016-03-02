@@ -1,4 +1,4 @@
-var fs = require('fs');
+// var fs = require('fs');
 var _ = require('lodash');
 var request = require('request');
 var Promise = require('bluebird');
@@ -11,7 +11,7 @@ var Users = require('../models/users');
 var Meals = require('../models/meals');
 var Foods = require('../models/foods');
 
-Promise.promisifyAll(fs);
+// Promise.promisifyAll(fs);
 Promise.promisifyAll(Users);
 Promise.promisifyAll(Meals);
 

@@ -15,7 +15,7 @@ var userSchema = mongoose.Schema({
             vegan: { type: 'Boolean' }, 
             vegetarian: { type: 'Boolean' },
             kosher: { type: 'Boolean' },
-            hallal: { type: 'Boolean' },
+            halal: { type: 'Boolean' },
         },
         allergies: {
             milk: { type: 'Boolean' }, 
@@ -27,9 +27,8 @@ var userSchema = mongoose.Schema({
             wheat: { type: 'Boolean' }, 
             soybeans: { type: 'Boolean' }, 
             gluten: { type: 'Boolean' }, 
-        },
+        }
     }
-
 ); 
 
 var User = mongoose.model('User',userSchema);
