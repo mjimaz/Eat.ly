@@ -1,7 +1,11 @@
 var Promise = require('bluebird');
 var utils = require('./utils.js');
-Promise.promisifyAll(utils);
 
+// creates an async equivalent of each function
+// The promisified method name will be the original method
+// name suffixed with suffix "Async". Example, checkUser -> checkUserAsync
+// http://bluebirdjs.com/docs/api/promise.promisifyall.html
+Promise.promisifyAll(utils);
 
 module.exports = function(app, express) {
 
@@ -9,19 +13,23 @@ module.exports = function(app, express) {
 		res.redirect('/index.html');
 	});
 
-	//POST to loggin should check user's credentials and, if validated,
-	//create aa session on the reqest and send the user's stored Object
+	//POST to login should check user's credentials and, if validated,
+	//create a session on the request and send the user's stored Object
 	//from the database back to the client
 	app.post('/login', function(req, res) {
 		utils.checkUserAsync(req.body.username, req.body.password)
 		.then(function(result) {
-			req.session.regenerate(function() {
+			if(result) {
+        req.session.regenerate(function() {
 				req.session.user = req.body.username;
 				utils.sendUserStateInfoAsync(req.body.username)
-				.then(function(userObj) {
-					res.send(userObj);
-				});
-			})
+				  .then(function(userObj) {
+					  res.send(userObj);
+				  });
+			  }) 
+		  } else {
+		  	res.send('user does not exist');
+		  }
 		})
 		.catch(function(err) {
 			res.send('error ' + err);

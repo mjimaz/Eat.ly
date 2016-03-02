@@ -1,6 +1,0 @@
-#!/bin/bash
-
-git remote add orlando https://github.com/orlandoc01/2016-01-greenfield-pw
-git remote add tasio https://github.com/tasiov/2016-01-greenfield-pw
-git remote add edison https://github.com/bamboostgg/2016-01-greenfield-pw
-git remote add upstream https://github.com/photogenic-wound/2016-01-greenfield-pw
