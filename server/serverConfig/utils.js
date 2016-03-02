@@ -10,7 +10,6 @@ var creds = {
 var Users = require('../models/users');
 var Meals = require('../models/meals');
 var Foods = require('../models/foods');
-var _ = require('lodash');
 
 Promise.promisifyAll(fs);
 Promise.promisifyAll(Users);
