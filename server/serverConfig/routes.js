@@ -53,19 +53,19 @@ module.exports = function(app, express) {
 	//credentials, create a session on the reqest, and then send the new
 	//user's object that was created in the db back to the client
 	app.post('/signup', function(req, res) {
-	    utils.makeNewUserAsync(req.body.username, req.body.password)
-	    .then(function(result) {
-	        req.session.regenerate(function() {
-	            req.session.user = req.body.username;
-	            utils.sendUserStateInfoAsync(req.body.username)
-	            .then(function(infoObj) {
-	            	res.send(infoObj);
-	            });
-	        })
-	    })
-	    .catch(function(err) {
-	        res.send('error ' + err);
-	    })
+    utils.makeNewUserAsync(req.body.username, req.body.password)
+    .then(function(result) {
+      req.session.regenerate(function() {
+        req.session.user = req.body.username;
+        utils.sendUserStateInfoAsync(req.body.username)
+        .then(function(infoObj) {
+        	res.send(infoObj);
+        });
+      })
+    })
+    .catch(function(err) {
+      res.send('Error signing up:' + err);
+    })
 	});
 
 	app.get('/logout', function(req, res) {
