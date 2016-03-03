@@ -64,7 +64,7 @@ module.exports = function(app, express) {
 	        })
 	    })
 	    .catch(function(err) {
-	        res.send('error ' + err);
+	        res.send('Error:' + err);
 	    })
 	});
 

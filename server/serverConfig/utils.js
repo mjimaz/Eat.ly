@@ -90,7 +90,7 @@ module.exports.checkUser = function(username, password, callback) {
 module.exports.makeNewUser = function(username, password, callback) {
     Users.find({username:username}, function(err, foundUser){
         if(Array.isArray(foundUser) && foundUser.length !== 0){ //mongodb sends back an empty array if nothing is found.
-            callback(null, foundUser);
+            callback('User Name Exists!', foundUser);
         } else {
             var salt = bcrypt.genSaltSync(10);
             var hash = bcrypt.hashSync(password, salt);
