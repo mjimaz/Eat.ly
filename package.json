@@ -2,7 +2,7 @@
   "name": "photogenic-food",
   "version": "1.0.0",
   "description": "Basic Calorie Counter",
-  "main": "client\index.jsx",
+  "main": "client/index.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

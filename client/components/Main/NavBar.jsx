@@ -4,6 +4,7 @@ import Tab from 'material-ui/lib/tabs/tab.js';
 import CalorieLog from './CalorieLog.jsx';
 import RecordMeals from './RecordMeals.jsx';
 import Summary from './Summary.jsx';
+import UserProfile from './UserProfile.jsx';
 
 const NavBar = ({user}) => {
 
@@ -18,6 +19,9 @@ const NavBar = ({user}) => {
 					</Tab>
 					<Tab label="Record Meals">
 						<RecordMeals user={user} />
+					</Tab>
+					<Tab label="My Profile">
+						<UserProfile user={user} />
 					</Tab>
 				</Tabs>
 		</div>

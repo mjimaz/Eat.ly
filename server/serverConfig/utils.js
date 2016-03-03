@@ -151,7 +151,7 @@ module.exports.sendUserStateInfo = function(username, callback) {
               var foods = _.mapValues(foodStrings, JSON.parse);
               //info object is finally constructed and returned
               var infoObj = {
-                  userInfo: _.omit(results[0][0], ['password','salt']),
+                  userInfo: _.pick(results[0][0], ['username', 'dietaryRestrictions','allergies', 'firstname', 'lastname', 'address']),
                   meals: results[1],
                   foods: foods
               };
