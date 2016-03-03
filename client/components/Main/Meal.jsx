@@ -16,8 +16,12 @@ const Meal = ({meal, foods, onRemoveClick, key}) => {
   let date = typeof meal.eatenAt === "string" ? meal.eatenAt.slice(0,10) : (new Date(meal.eatenAt)).toISOString().slice(0,10);
 
 	let handleClick = (e) => {
+<<<<<<< 3b21b4e3e505b792c21b625c7f494b90d2f1f3c9
 		console.log("A button was clicked!",key);
 		//onRemoveClick();
+=======
+		console.log("A button was clicked!");
+>>>>>>> Add button and click handler to Meal Component
   }
 
 	return (
@@ -49,9 +53,11 @@ const Meal = ({meal, foods, onRemoveClick, key}) => {
 
 		<div className='remove-button'>
 			<br/>
-			<RaisedButton label="Remove" style={{margin:"8px"}} onMouseDown={handleClick(key)}/>
+
+			<RaisedButton label="Submit" style={{margin:"8px"}} onMouseDown={handleClick}/>
 			<br/><br/>
 		</div>
+
     <br/>
 	</div>
 	);
