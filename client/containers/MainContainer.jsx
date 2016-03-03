@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changePage, removeUser } from '../actions/index.jsx';
+import { changePage, removeUser, changeTab } from '../actions/index.jsx';
 import Main from '../components/Main/Main.jsx';
 
 //Manages data for Main component.
@@ -8,7 +8,8 @@ import Main from '../components/Main/Main.jsx';
 //user prop on Main
 const mapStateToProps = (state) => {
   return {
-    user: state.user
+    user: state.user,
+    tab: state.tab
   }
 }
 
@@ -24,6 +25,9 @@ const mapDispatchToProps = (dispatch) => {
       .fail((res) => {
         console.log('err: ', res);
       });
+    },
+    goToTab: (tabValue) => {
+      dispatch(changeTab(tabValue));
     }
   }
 }

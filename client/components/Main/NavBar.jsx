@@ -6,22 +6,31 @@ import RecordMeals from './RecordMeals.jsx';
 import Summary from './Summary.jsx';
 import UserProfile from './UserProfile.jsx';
 
-const NavBar = ({user}) => {
+const NavBar = ({user, tab, goToTab}) => {
 
 	return (
 		<div className="nav-bar">
-				<Tabs tabItemContainerStyle={{backgroundColor:"rgb(139,189,7)"}}>
-					<Tab label="Summary">
-						<Summary user={user}/>
+				<Tabs tabItemContainerStyle={{backgroundColor:"rgb(139,189,7)"}}
+							value={tab}>
+					<Tab label="Summary"
+							 value="a"
+							 onClick={() => {goToTab("a")}}	>
+						<Summary user={user} />
 					</Tab>
-					<Tab label="Calorie Log">
+					<Tab label="Calorie Log"
+					     value="b"
+					     onClick={() => {goToTab("b")}}>
 						<CalorieLog user={user} />
 					</Tab>
-					<Tab label="Record Meals">
+					<Tab label="Record Meals"
+							 value="c"
+							 onClick={() => {goToTab("c")}}>
 						<RecordMeals user={user} />
 					</Tab>
-					<Tab label="My Profile">
-						<UserProfile user={user} />
+					<Tab label="My Profile"
+							 value="d"
+							 onClick={() => {goToTab("d")}}>
+						<UserProfile selected="true" user={user} />
 					</Tab>
 				</Tabs>
 		</div>
