@@ -39,6 +39,7 @@ const Meal = ({meal, foods}) => {
 			}
 			</TableBody>
 		</Table>
+    <button onClick={}>DELETE MEAL</button>
     <br/>
 	</div>
 	);
