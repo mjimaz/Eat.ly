@@ -81,3 +81,11 @@ export const changePage = (newPage) => {
     newPage
   };
 };
+
+// Used to change to the user profile tab if the avatar component is clicked
+export const changeTab = (tabValue) => {
+  return {
+    type: 'CHANGE_TAB',
+    tab: tabValue
+  }
+}
