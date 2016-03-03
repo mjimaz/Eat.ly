@@ -17,6 +17,7 @@ const Meal = ({meal, foods}) => {
 
 	let handleClick = (e) => {
 		console.log("A button was clicked!");
+
   }
 
 	return (
@@ -45,17 +46,12 @@ const Meal = ({meal, foods}) => {
 			}
 			</TableBody>
 		</Table>
-<<<<<<< d04837377d727b7684c1e739335155f860018ccc
-    <button onClick={}>DELETE MEAL</button>
-=======
 
 		<div className='remove-button'>
 			<br/>
 			<RaisedButton label="Submit" style={{margin:"8px"}} onMouseDown={handleClick}/>
 			<br/><br/>
 		</div>
-
->>>>>>> Add button and click handler to Meal Component
     <br/>
 	</div>
 	);
