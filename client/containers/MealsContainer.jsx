@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { deleteMeal } from '../actions/index.jsx';
 import Meal from '../components/Main/Meal.jsx';
 
-/ It maps the state.user object to the
+// It maps the state.user object to the
 //user prop on Main
+
 const mapStateToProps = (state) => {
   return {
     user: state.user
@@ -12,8 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRemoveClick: (meal) => {
-      dispatch(deleteMeal(mealid))
+    onRemoveClick: (mealId) => {
+      console.log("inside onRemoveClick");
+      dispatch(deleteMeal(mealId));
     }
   }
 }
