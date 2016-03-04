@@ -7,6 +7,7 @@ import TableRow from 'material-ui/lib/table/table-row';
 import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 const Meal = ({meal, foods}) => {
 	//When adding a new meal without re-rendering the page, it is initially saved as a number (in milli)
@@ -14,10 +15,15 @@ const Meal = ({meal, foods}) => {
 	//the date as a string, so there's no need to parse them
   let date = typeof meal.eatenAt === "string" ? meal.eatenAt.slice(0,10) : (new Date(meal.eatenAt)).toISOString().slice(0,10);
 
+	let handleClick = (e) => {
+		console.log("A button was clicked!");
+  }
+
 	return (
 	<div className='meal-element'>
+
 		<Table>
-		 <TableHeader className='meal-title' displaySelectAll={false} >
+		 	<TableHeader className='meal-title' displaySelectAll={false} >
         <TableRow>
           <TableHeaderColumn><h3>Meal From: {date}</h3></TableHeaderColumn>
         </TableRow>
@@ -39,7 +45,17 @@ const Meal = ({meal, foods}) => {
 			}
 			</TableBody>
 		</Table>
+<<<<<<< d04837377d727b7684c1e739335155f860018ccc
     <button onClick={}>DELETE MEAL</button>
+=======
+
+		<div className='remove-button'>
+			<br/>
+			<RaisedButton label="Submit" style={{margin:"8px"}} onMouseDown={handleClick}/>
+			<br/><br/>
+		</div>
+
+>>>>>>> Add button and click handler to Meal Component
     <br/>
 	</div>
 	);
