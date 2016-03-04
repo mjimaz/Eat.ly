@@ -47,10 +47,6 @@ class UserProfile extends Component {
     var soybeans = $('#soybeans')[0].checked; 
     var gluten = $('#gluten')[0].checked; 
 
-    // console.log('username:', this.props.user.userInfo.username);
-    // console.log('birthdate:', birthdate);
-    // console.log('peanuts:', peanuts);
-    // console.log('halal:', halal);
     var user = {
       username: this.props.user.userInfo.username,
       firstName: firstname, 
@@ -78,7 +74,6 @@ class UserProfile extends Component {
         gluten: gluten
       }
     }
-    // console.log('final update:', user);
     this.props.updateUserProfile(user);
   }
 
