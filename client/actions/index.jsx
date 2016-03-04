@@ -82,6 +82,7 @@ export const changePage = (newPage) => {
   };
 };
 
+<<<<<<< d39fc9af8fb8b105899316f1f28eeb8676f2609a
 // Used to change to the user profile tab if the avatar component is clicked
 export const changeTab = (tabValue) => {
   return {
@@ -89,3 +90,12 @@ export const changeTab = (tabValue) => {
     tab: tabValue
   }
 }
+=======
+// Takes the index of the meal to be removed
+export const deleteMeal = (mealId) => {
+  return {
+    type: 'REMOVE_MEAL',
+    mealId: mealId
+  };
+};
+>>>>>>> Implement action and reducer, place test button on page

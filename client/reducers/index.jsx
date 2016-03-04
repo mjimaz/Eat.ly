@@ -13,6 +13,15 @@ const configureUser = (state = null, action) => {
       return Object.assign({}, state, {foods: totalFoods});
 		case 'REMOVE_USER':
 			return {};
+		case 'REMOVE_MEAL': 
+			// Copy existing state.meals
+			let mealsArr = state.meals.slice(0);
+
+			// Remove specified mean from array
+			mealsArr.splice(action.mealID, 1);
+
+			// Merge new meals property into copy of current state, return it
+			return Object.assign({}, state, {meals: mealsArr});
 		default:
 			return state;
 	}
