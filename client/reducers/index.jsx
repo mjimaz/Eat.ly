@@ -100,10 +100,19 @@ const configurePage = (state = 'Login', action) => {
 	}
 }
 
+const selectTab = (state = "a", action) => {
+	switch (action.type) {
+		case 'CHANGE_TAB':
+			return action.tab
+		default: 
+			return state;
+	}
+}
+
 const foodAppHandler = combineReducers({
 	user: configureUser,
 	page: configurePage,
-	// tabs:  
+	tab: selectTab,
 	foodQueries: configureSearch,
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress,

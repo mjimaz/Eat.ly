@@ -4,7 +4,7 @@ import Tab from 'material-ui/lib/tabs/tab.js';
 import CalorieLog from './CalorieLog.jsx';
 import RecordMeals from './RecordMeals.jsx';
 import Summary from './Summary.jsx';
-import UserProfileContainer from '../../containers/UserProfileContainer.jsx';
+import UserProfile from '../../containers/UserProfileContainer.jsx';
 
 const NavBar = ({user, tab, goToTab}) => {
 
@@ -30,7 +30,7 @@ const NavBar = ({user, tab, goToTab}) => {
 					<Tab label={`${user.userInfo.username}'s Profile`}
 							 value="d"
 							 onClick={() => {goToTab("d")}}>
-						<UserProfileContainer />
+						<UserProfile />
 					</Tab>
 				</Tabs>
 		</div>

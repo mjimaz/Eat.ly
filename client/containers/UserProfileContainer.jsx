@@ -29,7 +29,6 @@ class UserProfile extends Component {
     var firstname = $('#firstname').val();
     var lastname = $('#lastname').val();
     var location = $('#location').val();
-    var birthdate = $('#birthdate').val();
     var weight = $('#weight').val();
     var weightGoal = $('#weightgoal').val();
     var paleo = $('#paleo')[0].checked;
@@ -52,7 +51,6 @@ class UserProfile extends Component {
       firstName: firstname, 
       lastName: lastname,
       location: location,
-      birthdate: birthdate,
       weight: weight,
       weightGoal: weightGoal,
       dietaryRestrictions: {
@@ -80,7 +78,7 @@ class UserProfile extends Component {
   render(){
   return (
     <div class="row">
-	    <form class="col s12" onSubmit={this.handleSubmit}>
+      <form class="col s12" onSubmit={this.handleSubmit}>
         <TextField
           id='firstname'
           hintText="First Name"
@@ -91,13 +89,6 @@ class UserProfile extends Component {
           hintText="Last Name"
           defaultValue={this.props.user ? this.props.user.userInfo.lastName : '' }
           floatingLabelText="Enter Last Name" />
-        <br/>
-        <DatePicker 
-          id='birthdate'
-          hintText="Birth Date"
-          defaultDate={this.props.user ? this.props.user.userInfo.birthdate : '' }
-          floatingLabelText="Enter your birth date"
-          container = "inline" />
         <br/>
         <TextField
           id='location'
@@ -207,9 +198,9 @@ class UserProfile extends Component {
           id="gluten"
           label="Gluten" />
         <RaisedButton label="Update" type='submit'/>
-	    </form>
+      </form>
     </div>
-	)
+  )
   } 
 }
 
