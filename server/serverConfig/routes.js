@@ -124,4 +124,16 @@ module.exports = function(app, express) {
       res.send('error ' + err);
     });
   });
+
+  //update existing user
+  app.put('/user', function(req, res){
+  	utils.updateUserAsync( req.body)
+  	  .then(function (data) {
+  	    console.log('after updating user', data);
+        res.status(200).send(data);
+  	  })
+  	  .catch( function ( error ) {
+  	  	res.status(404).send(error);
+  	  });
+  });
 }

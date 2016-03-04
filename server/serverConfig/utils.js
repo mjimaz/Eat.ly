@@ -94,7 +94,8 @@ module.exports.makeNewUser = function(username, password, callback) {
         } else {
             var salt = bcrypt.genSaltSync(10);
             var hash = bcrypt.hashSync(password, salt);
-            Users.create({username:username, password:hash, salt:salt}, function(err, newUser){ //create new user if not found.
+            var user = { username:username, password:hash, salt:salt};
+            Users.create(user, function(err, newUser){ //create new user if not found.
                 if (newUser) {
                     callback( null, newUser );
                 } else {
@@ -104,6 +105,25 @@ module.exports.makeNewUser = function(username, password, callback) {
         }
     });
 };
+
+// update user information
+module.exports.updateUser = function( user, callback ) {
+  
+  console.log('receving update user information:', user);
+
+  var conditions = {username: user.username};
+  delete user.username;
+  // setting the `new` option to true to get the new doc back
+  Users.findOneAndUpdate(conditions, user, { 'new': true }, function(error, user) {
+    if (error) { 
+      callback(error, null);
+    } else {
+      var returnedUser = _.pick(user, ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']);
+      callback(null, returnedUser);
+    }
+  });
+
+}
 
 // inputs new meal into the database
 module.exports.makeNewMeal = function(meal, callback) {
@@ -151,7 +171,7 @@ module.exports.sendUserStateInfo = function(username, callback) {
               var foods = _.mapValues(foodStrings, JSON.parse);
               //info object is finally constructed and returned
               var infoObj = {
-                  userInfo: _.pick(results[0][0], ['username', 'dietaryRestrictions','allergies', 'firstname', 'lastname', 'address']),
+                  userInfo: _.pick(results[0][0], ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']),
                   meals: results[1],
                   foods: foods
               };
