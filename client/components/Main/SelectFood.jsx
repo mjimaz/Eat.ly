@@ -58,7 +58,7 @@ const SelectFood = ({selectedFoods, removeFood, user, sendMeal, sendFoodItems}) 
           let id = food['item_id'];
           return (
             <Food
-              numEaten={(ref) => timesEaten[index] = ref}
+              numEaten={(ref) => timesEaten[index] = (ref === 0 ? 1 : ref)}
               className='selectedFoodEntry'
               food={food}
               key={id}
@@ -74,15 +74,14 @@ const SelectFood = ({selectedFoods, removeFood, user, sendMeal, sendFoodItems}) 
 
 //return rest of view with initial table setup
   return (
-    <div className='select-food'>
-      <h5 className="ate-header">Meal Items</h5>
+    <div>
+      <h2 className="meal-header">Meal Items</h2>
       <Table>
         <TableHeader displaySelectAll={false} >
           <TableRow>
-            <TableHeaderColumn> <h5>Quantity</h5> </TableHeaderColumn>
-            <TableHeaderColumn> <h5>Description</h5> </TableHeaderColumn>
-            <TableHeaderColumn> </TableHeaderColumn>
-            <TableHeaderColumn> </TableHeaderColumn>
+            <TableHeaderColumn> <h6>Quantity</h6> </TableHeaderColumn>
+            <TableHeaderColumn> <h6>Description</h6> </TableHeaderColumn>
+            <TableHeaderColumn> <h6>Remove from Meal</h6></TableHeaderColumn>
           </TableRow>
         </TableHeader>
          {selectedFoodsDisplay}

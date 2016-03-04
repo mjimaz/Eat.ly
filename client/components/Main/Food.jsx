@@ -15,7 +15,7 @@ const Food = ({food, key, buttonAction, buttonIcon, numEaten, eatenInMeal}) => {
   let buttonColumn;
   if(buttonAction){
     buttonColumn = (
-      <TableRowColumn>
+      <TableRowColumn style={ {"text-align" : "center"} }>
         <FloatingActionButton onMouseDown={buttonAction}
          onTouchStart={buttonAction} mini={true} secondary={true}>
         {buttonIcon === 'add' ? <ContentAdd /> : <ContentRemove />}
@@ -29,7 +29,7 @@ const Food = ({food, key, buttonAction, buttonIcon, numEaten, eatenInMeal}) => {
     eatenInMeal = eatenInMeal || food.nf_serving_size_qty;
     servingColumn = (
       <TableRowColumn>
-        <h5>{ eatenInMeal + " - " +food.nf_serving_size_unit}</h5>
+        <em>{ eatenInMeal + " - " +food.nf_serving_size_unit}</em>
       </TableRowColumn>
     );
    }
@@ -38,7 +38,7 @@ const Food = ({food, key, buttonAction, buttonIcon, numEaten, eatenInMeal}) => {
   if(numEaten){
     inputColumn = (
       <TableRowColumn>
-        <input type="number" ref = {numEaten} placeholder={0}/>
+        <input type="number" ref = {numEaten} placeholder={1}/>
       </TableRowColumn>
     );
    }
@@ -53,7 +53,7 @@ const Food = ({food, key, buttonAction, buttonIcon, numEaten, eatenInMeal}) => {
     return (
       <TableRow className='food-item'>
         {inputColumn} 
-        <TableRowColumn><h5>{name}</h5><h6>{brand}</h6></TableRowColumn>
+        <TableRowColumn><strong>{name}</strong><i>{brand}</i></TableRowColumn>
         {servingColumn}
         {calorieColumn}
         {buttonColumn}

@@ -46,12 +46,12 @@ export const NutritionCounter = ({meals,foods}) => {
 	NF = _.mapValues(NF, (num) => num.toFixed(2));
 	return (
 		<TableRow>
-	    <TableHeaderColumn><h5>Items</h5></TableHeaderColumn>
+	    <TableHeaderColumn><h6>Items</h6></TableHeaderColumn>
 	    <TableHeaderColumn></TableHeaderColumn>
-	    <TableHeaderColumn><h5>Calories: {NF['nf_calories']} cal</h5></TableHeaderColumn>
-	    <TableHeaderColumn><h5>Protein: {NF['nf_protein']}g</h5></TableHeaderColumn>
-	    <TableHeaderColumn><h5>Carbs: {NF['nf_total_carbohydrate']}g</h5></TableHeaderColumn>
-	    <TableHeaderColumn><h5>Fat: {NF['nf_total_fat']}g</h5></TableHeaderColumn>
+	    <TableHeaderColumn><h6>Calories: {NF['nf_calories']} cal</h6></TableHeaderColumn>
+	    <TableHeaderColumn><h6>Protein: {NF['nf_protein']}g</h6></TableHeaderColumn>
+	    <TableHeaderColumn><h6>Carbs: {NF['nf_total_carbohydrate']}g</h6></TableHeaderColumn>
+	    <TableHeaderColumn><h6>Fat: {NF['nf_total_fat']}g</h6></TableHeaderColumn>
 		</TableRow>
 		);
 }

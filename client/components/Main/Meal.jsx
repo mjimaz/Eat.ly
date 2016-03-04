@@ -26,7 +26,7 @@ const Meal = ({meal, foods, onRemoveClick, key}) => {
 		<Table>
 		 	<TableHeader className='meal-title' displaySelectAll={false} >
         <TableRow>
-          <TableHeaderColumn><h3>Meal From: {date}</h3></TableHeaderColumn>
+          <TableHeaderColumn><h5>Meal From: {date}</h5></TableHeaderColumn>
         </TableRow>
 				<NutritionCounter meals={[meal]} foods={foods} />
       </TableHeader>
