@@ -108,9 +108,6 @@ module.exports.makeNewUser = function(username, password, callback) {
 
 // update user information
 module.exports.updateUser = function( user, callback ) {
-  
-  console.log('receving update user information:', user);
-
   var conditions = {username: user.username};
   delete user.username;
   // setting the `new` option to true to get the new doc back
@@ -122,7 +119,21 @@ module.exports.updateUser = function( user, callback ) {
       callback(null, returnedUser);
     }
   });
+}
 
+// update user information
+module.exports.deleteMeal = function( mealId, callback ) {
+  var conditions = {username: user.username};
+  delete user.username;
+  // setting the `new` option to true to get the new doc back
+  // Users.findOneAndUpdate(conditions, user, { 'new': true }, function(error, user) {
+  //   if (error) { 
+  //     callback(error, null);
+  //   } else {
+  //     var returnedUser = _.pick(user, ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']);
+  //     callback(null, returnedUser);
+  //   }
+  // });
 }
 
 // inputs new meal into the database
