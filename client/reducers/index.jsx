@@ -8,22 +8,22 @@ const configureUser = (state = null, action) => {
 		case 'SET_MEAL':
 		  let mealsArr = [].concat(action.meal, state.meals);
 			return Object.assign({}, state, {meals: mealsArr});
-    case 'ADD_FOOD_ID':
-      let totalFoods = Object.assign({}, state.foods, action.foodIds);
-      return Object.assign({}, state, {foods: totalFoods});
-		case 'REMOVE_USER':
-			return {};
-		case 'REMOVE_MEAL': 
-			// Copy existing state.meals
-			let mealsArr = state.meals.slice(0);
+		case 'ADD_FOOD_ID':
+	     let totalFoods = Object.assign({}, state.foods, action.foodIds);
+	     return Object.assign({}, state, {foods: totalFoods});
+    case 'REMOVE_USER':
+        return {};
+    case 'REMOVE_MEAL':
+    		// Copy existing state.meals
+        let mealsArr2 = state.meals.slice(0);
 
-			// Remove specified mean from array
-			mealsArr.splice(action.mealID, 1);
+    		// Remove specified mean from array
+        mealsArr2.splice(action.mealID, 1);
 
-			// Merge new meals property into copy of current state, return it
-			return Object.assign({}, state, {meals: mealsArr});
+    		// Merge new meals property into copy of current state, return it
+	      return Object.assign({}, state, {meals: mealsArr2});
 		default:
-			return state;
+				return state;
 	}
 }
 
@@ -40,7 +40,7 @@ const configureSearch = (state = [], action) => {
 }
 
 //This reducer is used to configure the results which the user has added
-//and staged for logging. 
+//and staged for logging.
 const configureSelectedFood = (state = {}, action) => {
 	switch(action.type) {
 		case 'SELECT_FOOD':
@@ -79,20 +79,9 @@ const configurePage = (state = 'Login', action) => {
 	}
 }
 
-
-const selectTab = (state = "a", action) => {
-	switch (action.type) {
-		case 'CHANGE_TAB':
-			return action.tab
-		default: 
-			return state;
-	}
-}
-
 const foodAppHandler = combineReducers({
 	user: configureUser,
 	page: configurePage,
-	tab: selectTab,
 	foodQueries: configureSearch,
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress
