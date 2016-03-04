@@ -27,7 +27,7 @@ const NavBar = ({user, tab, goToTab}) => {
 							 onClick={() => {goToTab("c")}}>
 						<RecordMeals user={user} />
 					</Tab>
-					<Tab label="My Profile"
+					<Tab label={`${user.userInfo.username}'s Profile`}
 							 value="d"
 							 onClick={() => {goToTab("d")}}>
 						<UserProfile  />

@@ -12,11 +12,7 @@
 }
 
 .summary {
-  position: relative;
-  display: block;
-  text-align: center;
-  left: 17%;
-  width: 66%;
+  text-align: left;
 }
 
 .pie-chart-legend > ul {
@@ -92,16 +88,47 @@
   font-size: 0.85em;
 }
 
-.search-bar {
-  text-align: center;
+.select-food-container {
+  background-color: #ececec;
+  padding-right: 1%;
+  height: 100vh;
 }
 
-.ate-header, .search-bar h5 {
+.search-header {
   text-align: center;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
-  font-weight: lighter;
   margin-top: 30px;
-  font-size: 30px;
+  margin-bottom: 30px;
+  font-family: 'Roboto-Light', sans-serif;
+  font-weight: 100;
 }
 
+.search-header h2 {
+  font-family: 'Roboto-Light', sans-serif;
+  font-weight: 100;
+}
+
+.meal-header {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Roboto-Light', sans-serif;
+  font-weight: 100;
+}
+
+
+.food-item {
+  margin-top: 10px;
+}
+
+.food-item i {
+  display: block;
+}
+
+strong, em {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+em {
+  font-weight: 300;
+}

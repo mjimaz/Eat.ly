@@ -6,6 +6,7 @@ import TableRow from 'material-ui/lib/table/table-row';
 import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import TextField from 'material-ui/lib/text-field';
 import RaisedButton from 'material-ui/lib/raised-button';
 
 const Search = ({foodList, queryFoods, selectFood}) => {
@@ -15,7 +16,7 @@ const Search = ({foodList, queryFoods, selectFood}) => {
   //On submit, send a query to the server to match possible foods
   let handleSubmit = (e) => {
     e.preventDefault();
-    queryFoods(query.value);
+    queryFoods(query.getValue());
   }
 
   //clicking a food in the results should add it to selectedFoods
@@ -26,20 +27,19 @@ const Search = ({foodList, queryFoods, selectFood}) => {
 
   return (
     <div className='search'>
-      <div className='search-bar'>
-        <br/>
-        <h5>What did you eat?</h5>
-        <input type="text" ref={(ref) => query = ref} />
+      <div className="search-header">
+        <h2>What did you eat?</h2>
+        <TextField hintText="enter food item" ref={(ref) => { if (ref) query = ref}} />
         <RaisedButton label="Submit" style={{margin:"8px"}} onMouseDown={handleSubmit}/>
-        <br/><br/>
+        <br/>
       </div>
 
        <Table>
         <TableHeader displaySelectAll={false} >
           <TableRow>
-            <TableHeaderColumn><h5>Description</h5></TableHeaderColumn>
-            <TableHeaderColumn><h5>Serving Size</h5></TableHeaderColumn>
-            <TableHeaderColumn></TableHeaderColumn>
+            <TableHeaderColumn><h6>Description</h6></TableHeaderColumn>
+            <TableHeaderColumn><h6>Serving Size</h6></TableHeaderColumn>
+            <TableHeaderColumn><h6>Add to Meal</h6></TableHeaderColumn>
           </TableRow>
         </TableHeader>
 
