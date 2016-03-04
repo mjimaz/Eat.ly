@@ -110,11 +110,3 @@ export const deleteMeal = (mealId) => {
     mealId: mealId
   };
 };
-
-//Update User Profile
-export const updateUserProfile = (user) => {
-  return {
-    type: 'Update_User_Profile',
-    payload: user
-  };
-};
