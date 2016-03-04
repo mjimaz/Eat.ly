@@ -87,13 +87,21 @@ export const changeTab = (tabValue) => {
   return {
     type: 'CHANGE_TAB',
     tab: tabValue
-  }
-}
+  };
+};
 
 // Takes the index of the meal to be removed
 export const deleteMeal = (mealId) => {
   return {
     type: 'REMOVE_MEAL',
     mealId: mealId
+  };
+};
+
+//Update User Profile
+export const updateUserProfile = (user) => {
+  return {
+    type: 'Update_User_Profile',
+    payload: user
   };
 };
