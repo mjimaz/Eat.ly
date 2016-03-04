@@ -103,6 +103,7 @@ const configurePage = (state = 'Login', action) => {
 const foodAppHandler = combineReducers({
 	user: configureUser,
 	page: configurePage,
+	// tabs:  
 	foodQueries: configureSearch,
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress,
