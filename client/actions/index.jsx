@@ -1,9 +1,22 @@
+import axios from 'axios';
+
+export const Update_User_Profile = 'Update_User_Profile';
+
 //Used to assign the user object from the server to the state
 export const setUser = (userObj) => {
 	return {
 		type: 'SET_USER',
 		userObj
 	};
+};
+
+//Update User Profile
+export const updateUserProfile = (user) => {
+  const request = axios.put('/user', user);
+  return {
+    type: Update_User_Profile,
+    payload: request
+  };
 };
 
 //Used to set the results obtained from searching for a food to
@@ -87,13 +100,21 @@ export const changeTab = (tabValue) => {
   return {
     type: 'CHANGE_TAB',
     tab: tabValue
-  }
-}
+  };
+};
 
 // Takes the index of the meal to be removed
 export const deleteMeal = (mealId) => {
   return {
     type: 'REMOVE_MEAL',
     mealId: mealId
+  };
+};
+
+//Update User Profile
+export const updateUserProfile = (user) => {
+  return {
+    type: 'Update_User_Profile',
+    payload: user
   };
 };
