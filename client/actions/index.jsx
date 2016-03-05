@@ -105,8 +105,10 @@ export const changeTab = (tabValue) => {
 
 // Takes the index of the meal to be removed
 export const deleteMeal = (mealId) => {
+  console.log('action meal id', mealId);
+  const request = axios.delete('/meals'+mealId);
   return {
     type: 'REMOVE_MEAL',
-    mealId: mealId
+    mealId: request
   };
 };

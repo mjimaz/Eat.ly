@@ -49,7 +49,7 @@ const Meal = ({meal, foods, key, index, onRemoveClick}) => {
 
 		<div className='remove-button'>
 			<br/>
-			<RaisedButton label="Remove" style={{margin:"8px"}} onClick={() => onRemoveClick(index)}/>
+			<RaisedButton label="Remove" style={{margin:"8px"}} onClick={() => onRemoveClick(meal._id)}/>
 			<br/><br/>
 		</div>
 
