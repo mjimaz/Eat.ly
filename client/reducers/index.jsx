@@ -19,10 +19,6 @@ const configureUser = (state = null, action) => {
 		  newState.meals = action.payload.data
 		  newState.userInfo = state.userInfo;
 		  return newState;
-		  
-	  case 'UPDATE_USER_IMAGE':
-	  	console.log("data from reducer: ", action.payload.data);
-			return state; 
 
 		case 'Update_User_Profile':
 		  var newState = {};

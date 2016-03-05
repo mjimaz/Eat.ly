@@ -116,7 +116,7 @@ export const setUserImage = (username, data) => {
   console.log("set user image: ", data);
   const request = axios.put(`/user/image/${username}`, data);
   return {
-    type: "UPDATE_USER_IMAGE",
-    data
+    type: "Update_User_Profile",
+    payload: request
   }
 }

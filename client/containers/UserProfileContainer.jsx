@@ -87,9 +87,10 @@ class UserProfile extends Component {
           return;
         }
         // myBlob is now the blob that the object URL pointed to.
-        blobUtil.blobToBase64String(blob).then(function (base64String) {
+        blobUtil.blobToBase64String(blob)
+        .then(function (base64String) {
           // success 
-          // console.log("blob to base 64 string looks like this: ", base64String);
+          console.log("blob to base 64 string looks like this: ", base64String);
           var profile_pic = {
             username: self.props.user.userInfo.username,
             profile_pic: {
