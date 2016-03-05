@@ -19,14 +19,12 @@ const configureUser = (state = null, action) => {
 		  newState.meals = action.payload.data
 		  newState.userInfo = state.userInfo;
 		  return newState;
-
 		case 'Update_User_Profile':
 		  var newState = {};
 		  newState.foods = state.foods;
 		  newState.meals = state.meals;
 		  newState.userInfo = action.payload.data;
 		  return newState;
-
 		default:
 				return state;
 	}
@@ -102,7 +100,7 @@ const foodAppHandler = combineReducers({
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress
 	// updateUserProfile: updateUserProfile
-	// deleteMealReducer: deleteMealReducer 
+	// deleteMealReducer: deleteMealReducer
 });
 
 export default foodAppHandler;
