@@ -2,8 +2,6 @@ import { combineReducers } from 'redux'
 //This reducer is used to configure the user object or one of it's
 //properties, such as meal or food
 const configureUser = (state = null, action) => {
-
-	console.log('configure User state:', state);
 	switch(action.type) {
 		case 'SET_USER':
 			return action.userObj === "Invalid User" ? state : action.userObj;
@@ -18,33 +16,18 @@ const configureUser = (state = null, action) => {
     case 'REMOVE_MEAL':
     		// Copy existing state.meals
         let mealsArr2 = state.meals.slice(0);
+				console.log("######################### MEALID: ",action.mealId);
+				console.log("############################### Before: ", mealsArr2);
 
     		// Remove specified mean from array
         mealsArr2.splice(action.mealID, 1);
 
+				console.log("############################### After: ", mealsArr2);
+
     		// Merge new meals property into copy of current state, return it
 	      return Object.assign({}, state, {meals: mealsArr2});
-
-		case 'Update_User_Profile':
-		  console.log('configureUser - updateUserProfile : action:', action, ' state:', state);
-		  var newState = {};
-		  newState.foods = state.foods;
-		  newState.meals = state.meals;
-		  newState.userInfo = action.payload.data
-		  //return Object.assign({}, state, {userInfo:action.payload.data});
-		  return newState;
 		default:
 				return state;
-	}
-}
-
-const updateUserProfile = (state = null, action) => {
-    switch(action.type) {
-		  case 'Update_User_Profile':
-		    console.log('update user profile current state:', state);
-			  return action.payload.data ;
-		  default:
-			  return state;
 	}
 }
 
@@ -115,8 +98,7 @@ const foodAppHandler = combineReducers({
 	tab: selectTab,
 	foodQueries: configureSearch,
 	selectedFoods: configureSelectedFood,
-	progressBar: configureProgress,
-	updateUserProfile: updateUserProfile 
+	progressBar: configureProgress
 });
 
 export default foodAppHandler;

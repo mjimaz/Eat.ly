@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { deleteMeal } from '../actions/index.jsx';
 import Meal from '../components/Main/Meal.jsx';
 
-// It maps the state.user object to the
+//It maps the state.user object to the
 //user prop on Main
 
 const mapStateToProps = (state) => {
@@ -25,4 +25,4 @@ const MealsContainer = connect(
   mapDispatchToProps
 )(Meal)
 
-export MealsContainer;
+export default MealsContainer;
