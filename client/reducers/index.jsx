@@ -14,18 +14,19 @@ const configureUser = (state = null, action) => {
     case 'REMOVE_USER':
         return {};
     case 'REMOVE_MEAL':
+
+    console.log('remove meal reducer:', state , 'action:', action)
     		// Copy existing state.meals
-        let mealsArr2 = state.meals.slice(0);
-				console.log("######################### MEALID: ",action.mealId);
-				console.log("############################### Before: ", mealsArr2);
+    //     let mealsArr2 = state.meals.slice(0);
 
-    		// Remove specified mean from array
-        mealsArr2.splice(action.mealID, 1);
+    // 		// Remove specified mean from array
+    //     mealsArr2.splice(action.mealID, 1);
 
-				console.log("############################### After: ", mealsArr2);
+				// console.log("############################### After: ", mealsArr2);
 
     		// Merge new meals property into copy of current state, return it
-	      return Object.assign({}, state, {meals: mealsArr2});
+	      //return Object.assign({}, state, {meals: mealsArr2});
+	      return state;
 		default:
 				return state;
 	}
