@@ -38,7 +38,7 @@ const Food = ({food, key, buttonAction, buttonIcon, numEaten, eatenInMeal}) => {
   if(numEaten){
     inputColumn = (
       <TableRowColumn>
-        <input type="number" ref = {numEaten} placeholder={1}/>
+        <input type="number" ref = {numEaten} defaultValue={1}/>
       </TableRowColumn>
     );
    }
