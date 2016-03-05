@@ -4,8 +4,7 @@ import Main from '../components/Main/Main.jsx';
 
 //Manages data for Main component.
 
-// It maps the state.user object to the
-//user prop on Main
+// It maps the state.user object to the user prop on Main
 const mapStateToProps = (state) => {
   return {
     user: state.user,

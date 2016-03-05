@@ -9,15 +9,15 @@ import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 import RaisedButton from 'material-ui/lib/raised-button';
 
-const Meal = ({meal, foods, onRemoveClick, key}) => {
+const Meal = ({meal, foods, key, index, onRemoveClick}) => {
 	//When adding a new meal without re-rendering the page, it is initially saved as a number (in milli)
 	//The check below corrects for this condition. Getting meals from the server however already have
 	//the date as a string, so there's no need to parse them
   let date = typeof meal.eatenAt === "string" ? meal.eatenAt.slice(0,10) : (new Date(meal.eatenAt)).toISOString().slice(0,10);
 
 	let handleClick = (e) => {
-		console.log("A button was clicked!",key);
-		//onRemoveClick();
+		console.log("A button was clicked!",index);
+		onRemoveClick(index);
   }
 
 	return (
@@ -49,9 +49,10 @@ const Meal = ({meal, foods, onRemoveClick, key}) => {
 
 		<div className='remove-button'>
 			<br/>
-			<RaisedButton label="Remove" style={{margin:"8px"}} onMouseDown={handleClick(key)}/>
+			<RaisedButton label="Remove" style={{margin:"8px"}} onClick={() => onRemoveClick(index)}/>
 			<br/><br/>
 		</div>
+
     <br/>
 	</div>
 	);
