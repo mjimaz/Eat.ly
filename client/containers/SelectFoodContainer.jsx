@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     sendMeal: (meal) => {
       $.post( "/meals", {"meal": meal})
       .done((res) => {
-        dispatch(setMeal(meal));
+        dispatch(setMeal(res));
       })
       .fail((res) => {
         console.log('error: ', res);
