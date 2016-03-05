@@ -139,6 +139,7 @@ em {
 .user-image-column {
   background-color: #ececec;
   height: 100vh;
+  overflow: hidden;
 }
 
 .form-background {
