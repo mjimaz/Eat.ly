@@ -155,4 +155,17 @@ module.exports = function(app, express) {
   	  	res.status(404).send(error);
   	  });
   });
+
+  app.put('/user/image/:username', function(req, res){
+  	console.log("put request to change user ", req.params.username, "'s profile picture received.");
+  	utils.updateUserAsync( req.body )
+  		.then(function(data) {
+  			res.status(200).send(data);
+  		})
+  		.catch(function(error) {
+  			res.status(404).send(error);
+  		});
+  });
 }
+
+

@@ -14,19 +14,23 @@ const configureUser = (state = null, action) => {
     case 'REMOVE_USER':
         return {};
     case 'REMOVE_MEAL':
-
-	      var newState = {};
+	    var newState = {};
 		  newState.foods = state.foods;
 		  newState.meals = action.payload.data
 		  newState.userInfo = state.userInfo;
 		  return newState;
 		  
-	    case 'Update_User_Profile':
+	  case 'UPDATE_USER_IMAGE':
+	  	console.log("data from reducer: ", action.payload.data);
+			return state; 
+
+		case 'Update_User_Profile':
 		  var newState = {};
 		  newState.foods = state.foods;
 		  newState.meals = state.meals;
 		  newState.userInfo = action.payload.data;
 		  return newState;
+
 		default:
 				return state;
 	}
