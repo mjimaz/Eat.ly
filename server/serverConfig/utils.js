@@ -115,7 +115,7 @@ module.exports.updateUser = function( user, callback ) {
     if (error) { 
       callback(error, null);
     } else {
-      var returnedUser = _.pick(user, ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']);
+      var returnedUser = _.pick(user, ['username', 'profile_pic','dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']);
       callback(null, returnedUser);
     }
   });
@@ -185,7 +185,7 @@ module.exports.sendUserStateInfo = function(username, callback) {
               var foods = _.mapValues(foodStrings, JSON.parse);
               //info object is finally constructed and returned
               var infoObj = {
-                  userInfo: _.pick(results[0][0], ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']),
+                  userInfo: _.pick(results[0][0], ['username', 'profile_pic','dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']),
                   meals: results[1],
                   foods: foods
               };

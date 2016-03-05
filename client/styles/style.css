@@ -115,7 +115,6 @@
   font-weight: 100;
 }
 
-
 .food-item {
   margin-top: 10px;
 }
@@ -131,4 +130,50 @@ strong, em {
 
 em {
   font-weight: 300;
+}
+
+.basic-info, .allergies, .dietary-restrictions {
+  margin-top: 30px;
+}
+
+.user-image-column {
+  background-color: #ececec;
+  height: 100vh;
+}
+
+.form-background {
+  background-color: #ececec;
+}
+
+.form-details-background {
+  background-color: #fefefe;
+}
+
+.drop-zone-styles {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.drop-zone-text {
+  padding: 5px;
+}
+
+.update-button-container {
+  margin-top: 30px;
+}
+
+.user-profile-pic {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 100px;
+  box-shadow: 6px 12px 44px -12px rgba(0,0,0,0.75);
+  object-fit: contain;
+  margin-bottom: 30px;
+}
+
+.user-greeting {
+  color: #fff;
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: 400;
 }

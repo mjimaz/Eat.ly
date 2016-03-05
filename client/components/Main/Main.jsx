@@ -15,7 +15,7 @@ const Main = ({user, tab, logoutUser, goToTab}) => {
       <AppBar 
         style={{backgroundColor:"rgb(139,189,7)"}} 
         title="Eat.ly" 
-        titleStyle={{"textAlign":"center"}}
+        titleStyle={{"textAlign":"center", "fontWeight":800}}
         iconElementRight={ 
           <FlatButton 
             label="Log Out" 
@@ -24,9 +24,12 @@ const Main = ({user, tab, logoutUser, goToTab}) => {
         }
         iconElementLeft={
           <Avatar color={colors.lightBlue500} 
+                  src={user.userInfo.profile_pic.data}
                   backgroundColor={colors.lightBlue50} 
                   onClick={() => { goToTab("d"); }} >
-            {user && user.userInfo && user.userInfo.username ? user.userInfo.username.slice(0,1): null}
+            <span className="user-greeting">
+              {user && user.userInfo && user.userInfo.username ? "Welcome, " + user.userInfo.firstName: null}
+            </span>  
           </Avatar>
         }
       />
