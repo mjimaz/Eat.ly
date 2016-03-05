@@ -123,9 +123,6 @@ module.exports.updateUser = function( user, callback ) {
 
 // update user information
 module.exports.deleteMeal = function( conditions, callback ) {
-
-  console.log('in utils delete meal', conditions);
-  
   Meals.findOneAndRemove(conditions, function(error, meals) {
     if (error) { 
       callback(error, null);

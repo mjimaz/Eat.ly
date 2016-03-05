@@ -108,6 +108,6 @@ export const deleteMeal = (mealId) => {
   const request = axios.delete('/meals'+mealId);
   return {
     type: 'REMOVE_MEAL',
-    mealId: request
+    payload: request
   };
 };
