@@ -26,7 +26,7 @@ module.exports = function(app, express) {
 				  .then(function(userObj) {
 					  res.send(userObj);
 				  });
-			  }) 
+			  })
 		  } else {
 		  	res.send('user does not exist');
 		  }
@@ -110,6 +110,7 @@ module.exports = function(app, express) {
 	    	res.status(200).send(data);
 	    })
 	    .catch(function ( error ) {
+				console.log("Inside catch!");
 	    	res.status(404).send(error);
 	    })
 

@@ -15,11 +15,6 @@ const Meal = ({meal, foods, key, index, onRemoveClick}) => {
 	//the date as a string, so there's no need to parse them
   let date = typeof meal.eatenAt === "string" ? meal.eatenAt.slice(0,10) : (new Date(meal.eatenAt)).toISOString().slice(0,10);
 
-	let handleClick = (e) => {
-		console.log("A button was clicked!",index);
-		onRemoveClick(index);
-  }
-
 	return (
 	<div className='meal-element'>
 

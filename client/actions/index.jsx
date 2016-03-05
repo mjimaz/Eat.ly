@@ -103,7 +103,7 @@ export const changeTab = (tabValue) => {
   };
 };
 
-// Takes the index of the meal to be removed
+// Takes the index of the meal to be removed and send post request to server
 export const deleteMeal = (mealId) => {
   const request = axios.delete('/meals'+mealId);
   return {
