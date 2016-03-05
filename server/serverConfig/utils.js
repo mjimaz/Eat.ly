@@ -123,15 +123,18 @@ module.exports.updateUser = function( user, callback ) {
 
 // update user information
 module.exports.deleteMeal = function( conditions, callback ) {
-
-  console.log('in utils delete meal', conditions);
-  
   Meals.findOneAndRemove(conditions, function(error, meals) {
     if (error) { 
-      console.log('error deleting meal:', meals);
       callback(error, null);
     } else {
-      console.log('return meal:', meals);
+      var user = {eatenBy: conditions.eatenBy};
+      Meals.find(user, function(error, foundMeals){
+        if (Array.isArray(foundMeals) && foundMeals.length !== 0) {
+            callback( null, foundMeals );
+        } else {
+            callback( error, null );
+        }
+    });
     }
   });
 }

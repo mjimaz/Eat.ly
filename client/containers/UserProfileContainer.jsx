@@ -15,8 +15,6 @@ class UserProfile extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
-    this.halal = this.props.user ? this.props.user.userInfo.dietaryRestrictions.halal : false;
-
   }
 
   handleChange( event, category ) {

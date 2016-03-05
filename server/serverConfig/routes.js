@@ -107,10 +107,9 @@ module.exports = function(app, express) {
 	  };
 	  utils.deleteMealAsync(user)
 	    .then( function (data) {
-	    	console.log('successfully delete meal:', data);
+	    	res.status(200).send(data);
 	    })
 	    .catch(function ( error ) {
-	    	console.log('error delete meal:', error);
 	    	res.status(404).send(error);
 	    })
 

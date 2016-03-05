@@ -14,22 +14,24 @@ const configureUser = (state = null, action) => {
     case 'REMOVE_USER':
         return {};
     case 'REMOVE_MEAL':
-    		// Copy existing state.meals
-        let mealsArr2 = state.meals.slice(0);
-				console.log("######################### MEALID: ",action.mealId);
-				console.log("############################### Before: ", mealsArr2);
 
-    		// Remove specified mean from array
-        mealsArr2.splice(action.mealID, 1);
-
-				console.log("############################### After: ", mealsArr2);
-
-    		// Merge new meals property into copy of current state, return it
-	      return Object.assign({}, state, {meals: mealsArr2});
+	      var newState = {};
+		  newState.foods = state.foods;
+		  newState.meals = action.payload.data
+		  newState.userInfo = state.userInfo;
+		  return newState;
+		  
+	    case 'Update_User_Profile':
+		  var newState = {};
+		  newState.foods = state.foods;
+		  newState.meals = state.meals;
+		  newState.userInfo = action.payload.data;
+		  return newState;
 		default:
 				return state;
 	}
 }
+
 
 //This reducer is used to configure the results obtained by searching for
 //a food element to log. This is a list of queried foods obtained from the
@@ -99,6 +101,8 @@ const foodAppHandler = combineReducers({
 	foodQueries: configureSearch,
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress
+	// updateUserProfile: updateUserProfile
+	// deleteMealReducer: deleteMealReducer 
 });
 
 export default foodAppHandler;
