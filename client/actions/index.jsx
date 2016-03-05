@@ -79,7 +79,7 @@ export const setTimeOnProgress = (timeWindow) => {
   };
 };
 
-//Used to set the filter option on the Progres line chart ('calories, protein, etc')
+//Used to set the filter option on the Progress line chart ('calories, protein, etc')
 export const setFilterOnProgress = (filter) => {
   return {
     type: 'PROGRESS_FILTER_SET',

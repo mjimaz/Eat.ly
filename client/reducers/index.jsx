@@ -89,7 +89,7 @@ const selectTab = (state = "a", action) => {
 	switch (action.type) {
 		case 'CHANGE_TAB':
 			return action.tab
-		default: 
+		default:
 			return state;
 	}
 }
