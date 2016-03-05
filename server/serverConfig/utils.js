@@ -122,18 +122,18 @@ module.exports.updateUser = function( user, callback ) {
 }
 
 // update user information
-module.exports.deleteMeal = function( mealId, callback ) {
-  var conditions = {username: user.username};
-  delete user.username;
-  // setting the `new` option to true to get the new doc back
-  // Users.findOneAndUpdate(conditions, user, { 'new': true }, function(error, user) {
-  //   if (error) { 
-  //     callback(error, null);
-  //   } else {
-  //     var returnedUser = _.pick(user, ['username', 'dietaryRestrictions','allergies', 'firstName', 'lastName', 'location', 'birthdate', 'weight', 'weightGoal']);
-  //     callback(null, returnedUser);
-  //   }
-  // });
+module.exports.deleteMeal = function( conditions, callback ) {
+
+  console.log('in utils delete meal', conditions);
+  
+  Meals.findOneAndRemove(conditions, function(error, meals) {
+    if (error) { 
+      console.log('error deleting meal:', meals);
+      callback(error, null);
+    } else {
+      console.log('return meal:', meals);
+    }
+  });
 }
 
 // inputs new meal into the database

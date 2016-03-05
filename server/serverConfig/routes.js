@@ -96,6 +96,26 @@ module.exports = function(app, express) {
 	    })
 	});
 
+	app.delete('/meals:mealId', function(req, res) {
+		//var mealId = req.headers.mealId;
+
+	  var removedMealId = req.params['mealId'];
+	  var username = req.session.user;
+	  var user = {
+      eatenBy: username,
+      _id: removedMealId
+	  };
+	  utils.deleteMealAsync(user)
+	    .then( function (data) {
+	    	console.log('successfully delete meal:', data);
+	    })
+	    .catch(function ( error ) {
+	    	console.log('error delete meal:', error);
+	    	res.status(404).send(error);
+	    })
+
+	});
+
 	//POST to search should trigger a search on the server in the Nutrionix API for
 	//possible matches. These matches are sent back to the client as a result
 	app.post('/search', function(req, res) {
