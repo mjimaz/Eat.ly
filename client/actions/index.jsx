@@ -79,7 +79,7 @@ export const setTimeOnProgress = (timeWindow) => {
   };
 };
 
-//Used to set the filter option on the Progres line chart ('calories, protein, etc')
+//Used to set the filter option on the Progress line chart ('calories, protein, etc')
 export const setFilterOnProgress = (filter) => {
   return {
     type: 'PROGRESS_FILTER_SET',
@@ -103,7 +103,7 @@ export const changeTab = (tabValue) => {
   };
 };
 
-// Takes the index of the meal to be removed
+// Takes the index of the meal to be removed and send post request to server
 export const deleteMeal = (mealId) => {
   const request = axios.delete('/meals'+mealId);
   return {

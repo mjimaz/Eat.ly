@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
-//This reducer is used to configure the user object or one of it's
-//properties, such as meal or food
+
+//This reducer is used to configure the user object or one of it's properties,
+//such as meal or food
 const configureUser = (state = null, action) => {
 	switch(action.type) {
 		case 'SET_USER':
@@ -13,20 +14,20 @@ const configureUser = (state = null, action) => {
 	     return Object.assign({}, state, {foods: totalFoods});
     case 'REMOVE_USER':
         return {};
+		//Remove meal case: receives payload from post delete request in the action
+		//and sets userInfo property of the state
     case 'REMOVE_MEAL':
 	    var newState = {};
 		  newState.foods = state.foods;
 		  newState.meals = action.payload.data
 		  newState.userInfo = state.userInfo;
 		  return newState;
-
-		case 'Update_User_Profile':
+	  case 'Update_User_Profile':
 		  var newState = {};
 		  newState.foods = state.foods;
 		  newState.meals = state.meals;
 		  newState.userInfo = action.payload.data;
 		  return newState;
-
 		default:
 				return state;
 	}
@@ -89,7 +90,7 @@ const selectTab = (state = "a", action) => {
 	switch (action.type) {
 		case 'CHANGE_TAB':
 			return action.tab
-		default: 
+		default:
 			return state;
 	}
 }
@@ -102,7 +103,7 @@ const foodAppHandler = combineReducers({
 	selectedFoods: configureSelectedFood,
 	progressBar: configureProgress
 	// updateUserProfile: updateUserProfile
-	// deleteMealReducer: deleteMealReducer 
+	// deleteMealReducer: deleteMealReducer
 });
 
 export default foodAppHandler;
